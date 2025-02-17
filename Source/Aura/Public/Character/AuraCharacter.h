@@ -23,5 +23,11 @@ public:
 	TObjectPtr<UCameraComponent> CameraComponent;
 	UPROPERTY(EditAnywhere, Category = "Camera")
 	TObjectPtr<USpringArmComponent>	SpringArmComponent;
+
 	
+	virtual void PossessedBy(AController* NewController) override;
+	virtual void OnRep_PlayerState() override;
+
+private:
+	void InitAbilityActorInfo();
 };
