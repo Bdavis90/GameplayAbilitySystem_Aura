@@ -21,7 +21,12 @@ void AAuraPlayerController::BeginPlay()
 
 	UEnhancedInputLocalPlayerSubsystem* SubSystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(
 		GetLocalPlayer());
-	check(SubSystem)
+	// check(SubSystem)
+	if(!SubSystem)
+	{
+		UE_LOG(LogTemp, Error, TEXT("SubSystem is null on PlayerController: %s"), *GetName())
+		return;
+	}
 	SubSystem->AddMappingContext(AuraContext, 0);
 
 	bShowMouseCursor = true;
