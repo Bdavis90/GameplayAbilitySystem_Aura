@@ -67,6 +67,9 @@ public:
 	virtual void PreAttributeBaseChange(const FGameplayAttribute& Attribute, float& NewValue) const override;
 	virtual void PostGameplayEffectExecute(const FGameplayEffectModCallbackData& Data) override;
 
+	/**
+	 * Vital Attributes
+	 */
 	UPROPERTY(BlueprintReadOnly, Category = "Vital Attributes|Health", ReplicatedUsing = OnRep_Health)
 	FGameplayAttributeData Health;
 	ATTRIBUTE_ACCESSORS(UAuraAttributeSet, Health)
@@ -83,6 +86,26 @@ public:
 	FGameplayAttributeData MaxMana;
 	ATTRIBUTE_ACCESSORS(UAuraAttributeSet, MaxMana)
 
+	/**
+	 * Primary Attributes
+	 */
+	UPROPERTY(BlueprintReadOnly, Category = "Primary Attributes|Strength", ReplicatedUsing = OnRep_Strength)
+	FGameplayAttributeData Strength;
+	ATTRIBUTE_ACCESSORS(UAuraAttributeSet, Strength)
+
+	UPROPERTY(BlueprintReadOnly, Category = "Primary Attributes|Intelligence", ReplicatedUsing = OnRep_Intelligence)
+	FGameplayAttributeData Intelligence;
+	ATTRIBUTE_ACCESSORS(UAuraAttributeSet, Intelligence)
+
+	UPROPERTY(BlueprintReadOnly, Category = "Primary Attributes|Vigor", ReplicatedUsing = OnRep_Vigor)
+	FGameplayAttributeData Vigor;
+	ATTRIBUTE_ACCESSORS(UAuraAttributeSet, Vigor)
+
+	UPROPERTY(BlueprintReadOnly, Category = "Primary Attributes|Resilience", ReplicatedUsing = OnRep_Resilience)
+	FGameplayAttributeData Resilience;
+	ATTRIBUTE_ACCESSORS(UAuraAttributeSet, Resilience)
+
+
 	UFUNCTION()
 	virtual void OnRep_Health(const FGameplayAttributeData& OldHealth) const;
 	UFUNCTION()
@@ -91,6 +114,14 @@ public:
 	virtual void OnRep_Mana(const FGameplayAttributeData& OldMana) const;
 	UFUNCTION()
 	virtual void OnRep_MaxMana(const FGameplayAttributeData& OldMaxMana) const;
+	UFUNCTION()
+	virtual void OnRep_Strength(FGameplayAttributeData& OldStrength) const;
+	UFUNCTION()
+	virtual void OnRep_Intelligence(FGameplayAttributeData& OldIntelligence) const;
+	UFUNCTION()
+	virtual void OnRep_Vigor(FGameplayAttributeData& OldVigor) const;
+	UFUNCTION()
+	virtual void OnRep_Resilience(FGameplayAttributeData& OldResilience) const;
 
 private:
 
