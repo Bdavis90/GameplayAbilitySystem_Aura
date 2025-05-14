@@ -74,18 +74,11 @@ public:
 	FGameplayAttributeData Health;
 	ATTRIBUTE_ACCESSORS(UAuraAttributeSet, Health)
 
-	UPROPERTY(BlueprintReadOnly, Category = "Vital Attributes|MaxHealth", ReplicatedUsing = OnRep_MaxHealth)
-	FGameplayAttributeData MaxHealth;
-	ATTRIBUTE_ACCESSORS(UAuraAttributeSet, MaxHealth)
-
 	UPROPERTY(BlueprintReadOnly, Category = "Vital Attributes|Mana", ReplicatedUsing = OnRep_Mana)
 	FGameplayAttributeData Mana;
 	ATTRIBUTE_ACCESSORS(UAuraAttributeSet, Mana)
 
-	UPROPERTY(BlueprintReadOnly, Category = "Vital Attributes|MaxMana", ReplicatedUsing = OnRep_MaxMana)
-	FGameplayAttributeData MaxMana;
-	ATTRIBUTE_ACCESSORS(UAuraAttributeSet, MaxMana)
-
+	
 	/**
 	 * Primary Attributes
 	 */
@@ -105,6 +98,50 @@ public:
 	FGameplayAttributeData Resilience;
 	ATTRIBUTE_ACCESSORS(UAuraAttributeSet, Resilience)
 
+	/**
+ * Secondary Attributes
+ */
+
+	UPROPERTY(BlueprintReadOnly, Category = "Primary Attributes|Armor", ReplicatedUsing = OnRep_Armor)
+	FGameplayAttributeData Armor;
+	ATTRIBUTE_ACCESSORS(UAuraAttributeSet, Armor)
+	
+	UPROPERTY(BlueprintReadOnly, Category = "Primary Attributes|ArmorPenetration", ReplicatedUsing = OnRep_ArmorPenetration)
+	FGameplayAttributeData ArmorPenetration;
+	ATTRIBUTE_ACCESSORS(UAuraAttributeSet, ArmorPenetration)
+	
+	UPROPERTY(BlueprintReadOnly, Category = "Primary Attributes|BlockChance", ReplicatedUsing = OnRep_BlockChance)
+	FGameplayAttributeData BlockChance;
+	ATTRIBUTE_ACCESSORS(UAuraAttributeSet, BlockChance)
+	
+	UPROPERTY(BlueprintReadOnly, Category = "Primary Attributes|CriticalHitChance", ReplicatedUsing = OnRep_CriticalHitChance)
+	FGameplayAttributeData CriticalHitChance;
+	ATTRIBUTE_ACCESSORS(UAuraAttributeSet, CriticalHitChance)
+	
+	UPROPERTY(BlueprintReadOnly, Category = "Primary Attributes|CriticalHitDamage", ReplicatedUsing = OnRep_CriticalHitDamage)
+	FGameplayAttributeData CriticalHitDamage;
+	ATTRIBUTE_ACCESSORS(UAuraAttributeSet, CriticalHitDamage)
+	
+	UPROPERTY(BlueprintReadOnly, Category = "Primary Attributes|CriticalHitResistance", ReplicatedUsing = OnRep_CriticalHitResistance)
+	FGameplayAttributeData CriticalHitResistance;
+	ATTRIBUTE_ACCESSORS(UAuraAttributeSet, CriticalHitResistance)
+	
+	UPROPERTY(BlueprintReadOnly, Category = "Primary Attributes|HealthRegeneration", ReplicatedUsing = OnRep_HealthRegeneration)
+	FGameplayAttributeData HealthRegeneration;
+	ATTRIBUTE_ACCESSORS(UAuraAttributeSet, HealthRegeneration)
+	
+	UPROPERTY(BlueprintReadOnly, Category = "Primary Attributes|ManaRegeneration", ReplicatedUsing = OnRep_ManaRegeneration)
+	FGameplayAttributeData ManaRegeneration;
+	ATTRIBUTE_ACCESSORS(UAuraAttributeSet, ManaRegeneration)
+
+	UPROPERTY(BlueprintReadOnly, Category = "Vital Attributes|MaxMana", ReplicatedUsing = OnRep_MaxMana)
+	FGameplayAttributeData MaxMana;
+	ATTRIBUTE_ACCESSORS(UAuraAttributeSet, MaxMana)
+
+	UPROPERTY(BlueprintReadOnly, Category = "Vital Attributes|MaxHealth", ReplicatedUsing = OnRep_MaxHealth)
+	FGameplayAttributeData MaxHealth;
+	ATTRIBUTE_ACCESSORS(UAuraAttributeSet, MaxHealth)
+
 
 	UFUNCTION()
 	virtual void OnRep_Health(const FGameplayAttributeData& OldHealth) const;
@@ -122,6 +159,22 @@ public:
 	virtual void OnRep_Vigor(FGameplayAttributeData& OldVigor) const;
 	UFUNCTION()
 	virtual void OnRep_Resilience(FGameplayAttributeData& OldResilience) const;
+	UFUNCTION()
+	virtual void OnRep_Armor(FGameplayAttributeData& OldArmor) const;
+	UFUNCTION()
+	virtual void OnRep_ArmorPenetration(FGameplayAttributeData& OldArmorPenetration) const;
+	UFUNCTION()
+	virtual void OnRep_BlockChance(FGameplayAttributeData& OldBlockChance) const;
+	UFUNCTION()
+	virtual void OnRep_CriticalHitChance(FGameplayAttributeData& OldCriticalHitChance) const;
+	UFUNCTION()
+	virtual void OnRep_CriticalHitDamage(FGameplayAttributeData& OldCriticalHitDamage) const;
+	UFUNCTION()
+	virtual void OnRep_CriticalHitResistance(FGameplayAttributeData& OldCriticalHitResistance) const;
+	UFUNCTION()
+	virtual void OnRep_HealthRegeneration(FGameplayAttributeData& OldHealthRegeneration) const;
+	UFUNCTION()
+	virtual void OnRep_ManaRegeneration(FGameplayAttributeData& OldManaRegeneration) const;
 
 private:
 
