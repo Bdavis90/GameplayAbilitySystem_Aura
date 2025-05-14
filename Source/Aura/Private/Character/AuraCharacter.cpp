@@ -30,6 +30,16 @@ AAuraCharacter::AAuraCharacter()
 	bUseControllerRotationRoll = false;
 }
 
+int32 AAuraCharacter::GetCharacterLevel()
+{
+	Super::GetCharacterLevel();
+
+	AAuraPlayerState* PS = GetPlayerState<AAuraPlayerState>();
+	check(PS);
+	
+	return PS->GetCharacterLevel();
+}
+
 // Initialize Ability Actor Info on the Server
 void AAuraCharacter::PossessedBy(AController* NewController)
 {

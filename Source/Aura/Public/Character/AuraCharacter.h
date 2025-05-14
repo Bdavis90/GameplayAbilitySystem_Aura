@@ -17,7 +17,11 @@ class AURA_API AAuraCharacter : public AAuraCharacterBase
 public:
 	AAuraCharacter();
 
-	protected:
+	/** Combat Interface **/
+	virtual int32 GetCharacterLevel() override;
+	/** End Combat Interface **/
+
+protected:
 	
 	UPROPERTY(EditAnywhere, Category = "Camera")
 	TObjectPtr<UCameraComponent> CameraComponent;
