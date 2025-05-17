@@ -5,7 +5,6 @@
 
 #include "AbilitySystem/AuraAttributeSet.h"
 #include "AbilitySystem/Data/AttributeInfo.h"
-#include "AuraGameplayTags.h"
 
 void UAttributeMenuWidgetController::BindCallbacksToDependencies()
 {
@@ -14,7 +13,7 @@ void UAttributeMenuWidgetController::BindCallbacksToDependencies()
 
 	for(FAuraAttributeInfo& Tag : AttributeInfo.Get()->AttributeInformation)
 	{
-		AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(Tag.AttributeGetter).AddLambda([this, &Tag, &AS](const FOnAttributeChangeData& Data)
+		AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(Tag.AttributeGetter).AddLambda([this, Tag, AS](const FOnAttributeChangeData& Data)
 		{
 			BroadcastAttributeInfo(Tag, AS);
 		});
